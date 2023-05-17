@@ -11,19 +11,19 @@ class GameScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
-
-
+        //random operations call
         randomOperation()
-
+        //button equal
         val equal = findViewById<Button>(R.id.equal)
         equal.setOnClickListener {
             // Start the Start_screen activity
             val intent = Intent(this@GameScreen, FinalScreen::class.java)
             startActivity(intent)
         }
+        //lisning to buttons
         setupNumberButtonListeners()
 
-// Inside your activity or fragment
+
 
     }
 
@@ -46,6 +46,50 @@ class GameScreen : AppCompatActivity() {
                 appendNumberToAnswer(enteredNumber)
             }
         }
+        //the AC button Listener
+        val ac = findViewById<Button>(R.id.AC)
+        ac.setOnClickListener {
+            clearAnswer()
+        }
+        //the del button Listener
+        val del = findViewById<Button>(R.id.DEL)
+        del.setOnClickListener {
+            deleteLastNumber()
+        }
+        val moins = findViewById<Button>(R.id.moins)
+        moins.setOnClickListener {
+            insertMinus()
+        }
+        val equal = findViewById<Button>(R.id.equal)
+
+    }
+
+    //minus button
+    private fun insertMinus() {
+        val answerTextView = findViewById<TextView>(R.id.Answer)
+        val currentAnswer = answerTextView.text.toString()
+
+        if (currentAnswer == "-") {
+        }else {
+            val newAnswer = "-$currentAnswer"
+            answerTextView.text = newAnswer
+        }
+    }
+
+    //del button function
+    private fun deleteLastNumber() {
+        val answerTextView = findViewById<TextView>(R.id.Answer)
+        val currentAnswer = answerTextView.text.toString()
+        if (currentAnswer.isNotEmpty()) {
+            val newAnswer = currentAnswer.substring(0, currentAnswer.length - 1)
+            answerTextView.text = newAnswer
+        }
+    }
+
+    //the AC Button
+    private fun clearAnswer() {
+        val answerTextView = findViewById<TextView>(R.id.Answer)
+        answerTextView.text = ""  // Set the text to an empty string
     }
 
     private fun appendNumberToAnswer(number: String) {
@@ -60,7 +104,7 @@ class GameScreen : AppCompatActivity() {
         if(i==4){ val intent = Intent(this@GameScreen, FinalScreen::class.java)
             startActivity(intent)}
     }
-    //rqndom operations
+    //random operations
     fun randomOperation(){
         val randNum1: TextView = findViewById(R.id.randNum1)
         val randNum2: TextView = findViewById(R.id.randNum2)
