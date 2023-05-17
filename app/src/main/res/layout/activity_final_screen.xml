@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/arr_plan"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo"></ImageView>
+
+    <!--    Current score-->
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Game Over"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/frame_background"
+        >
+
+        <TextView
+            android:id="@+id/currentScoreTextView"
+            android:layout_width="310dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Your current score is 10/20"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" /> <!-- Create a custom background drawable for the text box -->
+
+    </FrameLayout>
+    <!--   Best score-->
+    <FrameLayout
+        android:layout_width="319dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/frame_background">
+
+        <TextView
+            android:id="@+id/bestScoreText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Your best score is 10/20"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" /> <!-- Create a custom background drawable for the text box -->
+
+    </FrameLayout>
+    <!--  Level -->
+    <FrameLayout
+        android:layout_width="326dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/frame_background">
+
+        <TextView
+            android:id="@+id/levelText"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Your level is beginner"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+    <!--  button play again -->
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/frame_background"
+        android:text="Play Again?"
+        android:textColor="@color/mycolor"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        />
+</LinearLayout>
