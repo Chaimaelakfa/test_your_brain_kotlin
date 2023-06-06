@@ -10,10 +10,9 @@ class WelcomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome_screen)
 
-        val nextButton = findViewById<Button>(R.id.nextButton)
-        nextButton.setOnClickListener {
+        findViewById<Button>(R.id.nextButton).setOnClickListener {
             // Start the Start_screen activity
-            val intent = Intent(this@WelcomeScreen, StartScreen::class.java)
+            val intent = Intent(this, StartScreen::class.java)
             startActivity(intent)
         }
     }

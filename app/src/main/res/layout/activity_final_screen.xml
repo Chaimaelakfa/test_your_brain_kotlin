@@ -32,7 +32,7 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:background="@drawable/frame_background"
+        android:background="@drawable/output_frame_background"
         >
 
         <TextView
@@ -52,7 +52,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/frame_background">
+        android:background="@drawable/output_frame_background">
 
         <TextView
             android:id="@+id/bestScoreText"
@@ -72,7 +72,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/frame_background">
+        android:background="@drawable/output_frame_background">
 
         <TextView
             android:id="@+id/levelText"
@@ -92,7 +92,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/frame_background"
+        android:background="@drawable/output_frame_background"
         android:text="Play Again?"
         android:textColor="@color/mycolor"
         android:textSize="25sp"

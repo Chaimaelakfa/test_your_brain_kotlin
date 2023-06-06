@@ -22,7 +22,7 @@
             android:id="@+id/logo"
             android:layout_width="90dp"
             android:layout_height="52dp"
-            app:srcCompat="@drawable/header" />
+            app:srcCompat="@drawable/logo_image" />
 
 
         <TextView
@@ -62,60 +62,56 @@
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="400dp"
             android:layout_height="42dp"
             android:gravity="center"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/randNum1"
-                android:layout_width="8dp"
+                android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/Operation"
-                android:layout_width="8dp"
+                android:layout_width="30dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/randNum2"
-                android:layout_width="8dp"
+                android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/egal"
-                android:layout_width="8dp"
+                android:layout_width="30dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="="
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/Answer"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>
 

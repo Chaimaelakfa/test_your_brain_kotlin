@@ -190,9 +190,13 @@ class GameScreen : AppCompatActivity() {
     //add numbers next to eachother
     private fun appendNumberToAnswer(number: String) {
         val userAnswer = findViewById<TextView>(R.id.Answer)
-        val currentAnswerText = userAnswer.text.toString()
-        val newAnswer = "$currentAnswerText$number"
-        userAnswer.text = newAnswer
+        val userAnswerText= userAnswer.text.toString()
+        val newAnswer = "$userAnswerText$number"
+        if (userAnswerText.length < 3||(userAnswerText.length == 3 && userAnswerText.startsWith("-"))){
+            val newAnswer = "$userAnswerText$number"
+            userAnswer.text = newAnswer
+        }
+
     }
 
 

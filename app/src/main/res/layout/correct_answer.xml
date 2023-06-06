@@ -29,7 +29,7 @@
             android:id="@+id/nextButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/rounded_button_correcte"
+            android:background="@drawable/rounded_frame_correcte"
             android:layout_marginTop="40dp"
             android:src="@drawable/ic_arrow_forward"/>
     </LinearLayout>
