@@ -134,7 +134,7 @@ class GameScreen : AppCompatActivity() {
     }
 
     fun cond(){
-        if(i==20){
+        if(i==4){
             val intent = Intent(this@GameScreen, FinalScreen::class.java)
             intent.putExtra("currentScore", currentScore)
             startActivity(intent)}

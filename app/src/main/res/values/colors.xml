@@ -10,5 +10,7 @@
     <color name="mycolor">#FF7497CA</color>
     <color name="boxColor">#FF516A8F</color>
     <color name="custom_color_green">#4CAF50</color>
+    <color name="colorOfAC">#607D8B</color>
+    <color name="colorOfDEL">#F44336</color>
 
 </resources>

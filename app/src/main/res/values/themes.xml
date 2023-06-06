@@ -1,7 +1,7 @@
 <!-- styles.xml -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Test_your_brain_personnel" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Test_your_brain_personnel" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,13 +13,59 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
-        <!-- Custom button background color -->
-        <item name="android:buttonStyle">@style/CustomButtonStyle</item>
     </style>
 
     <!-- Custom button style -->
-    <style name="CustomButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="android:background">@drawable/button_background</item>
-        <!-- Add any additional button customizations here -->
+    <style name="MyCustomButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">331dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@color/boxColor</item>
+        <item name="android:gravity">center</item>
+
+
+    </style>
+    <style name="MyCustomButtonStyleAC" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">331dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@color/colorOfAC</item>
+        <item name="android:gravity">center</item>
+
+
+    </style>
+    <style name="MyCustomButtonStyleDel" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">331dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:backgroundTint">@color/colorOfDEL</item>
+        <item name="android:gravity">center</item>
+
+
+    </style>
+    <style name="MyCustomButtonStyleEqual" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">331dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@color/custom_color_green</item>
+        <item name="android:gravity">center</item>
+
+
     </style>
 </resources>
