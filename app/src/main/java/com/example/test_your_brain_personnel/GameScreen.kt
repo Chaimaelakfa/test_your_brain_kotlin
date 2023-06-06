@@ -125,8 +125,7 @@ class GameScreen : AppCompatActivity() {
     private fun nextOperation() {
         // Reset operation and userAnswer
         randomOperation()
-        val userAnswerTextView = findViewById<TextView>(R.id.Answer)
-        userAnswerTextView.text = ""
+        findViewById<TextView>(R.id.Answer).text = ""
         i++
         condition()
     }
@@ -143,37 +142,38 @@ class GameScreen : AppCompatActivity() {
 
     //minus button
     private fun insertMinus() {
-        val answerTextView = findViewById<TextView>(R.id.Answer)
-        val currentAnswer = answerTextView.text.toString()
+        val userAnswer= findViewById<TextView>(R.id.Answer)
+        val userAnswerText= userAnswer.text.toString()
 
-        if (currentAnswer == "-") {
+        if (userAnswerText == "-") {
         }else {
-            val newAnswer = "-$currentAnswer"
-            answerTextView.text = newAnswer
+            val newAnswer = "-$userAnswerText"
+            userAnswer.text = newAnswer
         }
     }
 
     //del button function
     private fun deleteLastNumber() {
-        val answerTextView = findViewById<TextView>(R.id.Answer)
-        val currentAnswer = answerTextView.text.toString()
-        if (currentAnswer.isNotEmpty()) {
-            val newAnswer = currentAnswer.substring(0, currentAnswer.length - 1)
-            answerTextView.text = newAnswer
+        val userAnswer= findViewById<TextView>(R.id.Answer)
+        val currentAnswerText= userAnswer.text.toString()
+        if (currentAnswerText.isNotEmpty()) {
+            val newAnswer = currentAnswerText.substring(0, currentAnswerText.length - 1)
+            userAnswer.text = newAnswer
         }
     }
 
     //the AC Button
     private fun clearAnswer() {
-        val answerTextView = findViewById<TextView>(R.id.Answer)
-        answerTextView.text = ""  // Set the text to an empty string
+        val userAnswer = findViewById<TextView>(R.id.Answer)
+        userAnswer.text = ""  // Set the text to an empty string
     }
 
+    //add numbers next to eachother
     private fun appendNumberToAnswer(number: String) {
-        val answerTextView = findViewById<TextView>(R.id.Answer)
-        val currentAnswer = answerTextView.text.toString()
-        val newAnswer = "$currentAnswer$number"
-        answerTextView.text = newAnswer
+        val userAnswer = findViewById<TextView>(R.id.Answer)
+        val currentAnswerText = userAnswer.text.toString()
+        val newAnswer = "$currentAnswerText$number"
+        userAnswer.text = newAnswer
     }
 
 
