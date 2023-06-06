@@ -22,6 +22,10 @@ class GameScreen : AppCompatActivity() {
         randomOperation()
         //lisning to buttons
         tappedButton()
+        //name of player
+        val hello = findViewById<TextView>(R.id.helloName)
+        val nom = intent.getStringExtra("nom", )
+        hello.text = "Hello $nom"
 
     }
 
