@@ -1,6 +1,7 @@
 package com.example.test_your_brain_personnel
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import java.util.Random
 
 class GameScreen : AppCompatActivity() {
     private var currentScore= 0
+    private var i =1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
@@ -19,6 +21,7 @@ class GameScreen : AppCompatActivity() {
         randomOperation()
         //lisning to buttons
         setupNumberButtonListeners()
+
     }
 
 
@@ -119,7 +122,7 @@ class GameScreen : AppCompatActivity() {
     }
 
 
-    var i=0
+
     private fun nextOperation() {
         // Reset operation and userAnswer
         randomOperation()
@@ -135,7 +138,16 @@ class GameScreen : AppCompatActivity() {
             startActivity(intent)}
     }
     private fun saveScore(score: Any) {
+        //Création/Récupération du fichier XML pour shared pref
+        val sharedPref = getSharedPreferences("fichierPreferencesScore", Context.MODE_PRIVATE)
 
+        val bestScore = sharedPref.getInt("bestScore", 0)
+        if (currentScore > bestScore) {
+            //ecrire dans le fichier shared pref
+            val editor = sharedPref.edit()
+            editor.putInt("bestScore", currentScore)
+            editor.apply()
+        }
     }
 
 
@@ -195,6 +207,8 @@ class GameScreen : AppCompatActivity() {
         operation.text = operator
 
 
+        val numberOperation : TextView = findViewById(R.id.numOperation)
+        numberOperation.text= "Operation Number $i"
         condition()
 
     }

@@ -40,9 +40,19 @@
 
 
     <TextView
+        android:id="@+id/helloName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="hi flana , your on operation num x"/>
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="Hello"/>
+    <TextView
+        android:id="@+id/numOperation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="Operation num x"/>
 
     <LinearLayout
         android:layout_width="match_parent"
