@@ -29,7 +29,7 @@
 
 
     </style>
-    <style name="MyCustomButtonStyleAC" parent="Widget.MaterialComponents.Button">
+    <style name="MyCustomButtonStyleAC" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_width">331dp</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:layout_marginLeft">6dp</item>
@@ -39,32 +39,8 @@
         <item name="android:textSize">20sp</item>
         <item name="android:backgroundTint">@color/colorOfAC</item>
         <item name="android:gravity">center</item>
+        <item name="cornerRadius">100dp</item>
 
-
-    </style>
-    <style name="MyCustomButtonStyleDel" parent="Widget.MaterialComponents.Button">
-        <item name="android:layout_width">331dp</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:layout_marginLeft">6dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginRight">6dp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:backgroundTint">@color/colorOfDEL</item>
-        <item name="android:gravity">center</item>
-
-
-    </style>
-    <style name="MyCustomButtonStyleEqual" parent="Widget.MaterialComponents.Button">
-        <item name="android:layout_width">331dp</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:layout_marginLeft">6dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginRight">6dp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@color/custom_color_green</item>
-        <item name="android:gravity">center</item>
 
 
     </style>

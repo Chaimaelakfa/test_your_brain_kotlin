@@ -98,7 +98,7 @@ class GameScreen : AppCompatActivity() {
                     alertDialog.dismiss()
                 }
                 alertDialog.show()
-
+                alertDialog.setCanceledOnTouchOutside(false);
 
             } else {
                 // If the answer is incorrect, keep the current operation and reset the user's answer
@@ -116,6 +116,7 @@ class GameScreen : AppCompatActivity() {
                 }
                 // Move to next operation immediately
                 alertDialog.show()
+                alertDialog.setCanceledOnTouchOutside(false);
             }
             saveScore(currentScore) // Save the score
         }

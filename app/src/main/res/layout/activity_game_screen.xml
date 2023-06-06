@@ -139,6 +139,7 @@
                     android:id="@+id/num7"
                     android:text="7"
                     style="@style/MyCustomButtonStyle"
+
                     />
 
                 <Button
@@ -151,8 +152,10 @@
                     android:text="9" />
                 <Button
                     android:id="@+id/AC"
-                    style="@style/MyCustomButtonStyleAC"
-                    android:text="AC" />
+                    style="@style/MyCustomButtonStyle"
+                    android:text="AC"
+                    android:backgroundTint="@color/colorOfAC"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -178,7 +181,8 @@
                     android:text="6" />
                 <Button
                     android:id="@+id/DEL"
-                    style="@style/MyCustomButtonStyleDel"
+                    style="@style/MyCustomButtonStyle"
+                    android:backgroundTint="@color/colorOfDEL"
                     android:text="DEL" />
 
 
@@ -243,7 +247,8 @@
                     android:gravity="center" />
                 <Button
                     android:id="@+id/equal"
-                    style="@style/MyCustomButtonStyleEqual"
+                    style="@style/MyCustomButtonStyle"
+                    android:backgroundTint="@color/custom_color_green"
                     android:text=" = " />
 
 
