@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mycolor">#FF7497CA</color>
     <color name="boxColor">#FF516A8F</color>
+    <color name="custom_color_green">#4CAF50</color>
+
 </resources>

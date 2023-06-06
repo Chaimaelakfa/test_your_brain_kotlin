@@ -1,10 +1,13 @@
 package com.example.test_your_brain_personnel
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import java.util.Random
 
 class GameScreen : AppCompatActivity() {
@@ -13,21 +16,16 @@ class GameScreen : AppCompatActivity() {
         setContentView(R.layout.activity_game_screen)
         //random operations call
         randomOperation()
-        //button equal
-        val equal = findViewById<Button>(R.id.equal)
-        equal.setOnClickListener {
-            // Start the Start_screen activity
-            val intent = Intent(this@GameScreen, FinalScreen::class.java)
-            startActivity(intent)
-        }
+
         //lisning to buttons
         setupNumberButtonListeners()
 
 
-
     }
 
+    @SuppressLint("MissingInflatedId")
     private fun setupNumberButtonListeners() {
+        var score =0
         val numberButtons = listOf<Button>(
             findViewById(R.id.num0),
             findViewById(R.id.num1),
@@ -61,8 +59,87 @@ class GameScreen : AppCompatActivity() {
             insertMinus()
         }
         val equal = findViewById<Button>(R.id.equal)
+        equal.setOnClickListener {
+            // Get the entered answer from the Answer TextView
+            val enteredAnswerTextView = findViewById<TextView>(R.id.Answer)
+            val enteredAnswer = enteredAnswerTextView.text.toString()
+
+            // Get the randomly generated numbers and operation
+            val randNum1TextView = findViewById<TextView>(R.id.randNum1)
+            val randNum2TextView = findViewById<TextView>(R.id.randNum2)
+            val operationTextView = findViewById<TextView>(R.id.Operation)
+
+            val randNum1 = randNum1TextView.text.toString().toInt()
+            val randNum2 = randNum2TextView.text.toString().toInt()
+            val operation = operationTextView.text.toString()
+
+            // Check the result
+            val userAnswerInt = enteredAnswer.toIntOrNull() ?: 0
+            val correctAnswer = when (operation) {
+                "+" -> randNum1 + randNum2
+                "-" -> randNum1 - randNum2
+                "*" -> randNum1 * randNum2
+                else -> 0
+            }
+
+            if (userAnswerInt == correctAnswer) {
+                score +=1
+                // User is correct
+                val alertDialogBuilder = AlertDialog.Builder(this)
+                val dialogView = layoutInflater.inflate(R.layout.correct_answer, null)
+                alertDialogBuilder.setView(dialogView)
+                val alertDialog = alertDialogBuilder.create()
+                val nextButton = dialogView.findViewById<ImageView>(R.id.nextButton)
+                nextButton.setOnClickListener {
+                    // Move to next operation immediately
+                    nextOperation()
+                    alertDialog.dismiss()
+                }
+                alertDialog.show()
+
+
+            } else {
+                // If the answer is incorrect, keep the current operation and reset the user's answer
+
+                // Show a dialog with "Wrong answer" message
+                val alertDialogBuilder = AlertDialog.Builder(this)
+                val dialogView = layoutInflater.inflate(R.layout.wrong_answer, null)
+                alertDialogBuilder.setView(dialogView)
+                val alertDialog = alertDialogBuilder.create()
+                val nextButton = dialogView.findViewById<ImageView>(R.id.nextButton)
+                nextButton.setOnClickListener {
+                    // Move to next operation immediately
+                    nextOperation()
+                    alertDialog.dismiss()
+                }
+                // Move to next operation immediately
+                alertDialog.show()
+            }
+            saveScore(score) // Save the score
+        }
+
+        }
+
+
+    var i=0
+    private fun nextOperation() {
+        // Reset operation and userAnswer
+        randomOperation()
+        val userAnswerTextView = findViewById<TextView>(R.id.Answer)
+        userAnswerTextView.text = ""
+        i++
+        condition()
+    }
+
+    fun condition(){
+        if(i==4){ val intent = Intent(this@GameScreen, FinalScreen::class.java)
+            startActivity(intent)}
+    }
+    private fun saveScore(score: Any) {
 
     }
+
+
 
     //minus button
     private fun insertMinus() {
@@ -99,11 +176,8 @@ class GameScreen : AppCompatActivity() {
         answerTextView.text = newAnswer
     }
 
-    var i=0
-    fun condition(){
-        if(i==4){ val intent = Intent(this@GameScreen, FinalScreen::class.java)
-            startActivity(intent)}
-    }
+
+
     //random operations
     fun randomOperation(){
         val randNum1: TextView = findViewById(R.id.randNum1)
@@ -126,6 +200,7 @@ class GameScreen : AppCompatActivity() {
         randNum1.text = num1.toString()
         randNum2.text = num2.toString()
         operation.text = operationSymbol
+
 
         condition()
 
