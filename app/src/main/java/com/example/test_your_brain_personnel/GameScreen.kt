@@ -118,7 +118,7 @@ class GameScreen : AppCompatActivity() {
             saveScore(score) // Save the score
         }
 
-        }
+    }
 
 
     var i=0
@@ -179,27 +179,20 @@ class GameScreen : AppCompatActivity() {
 
 
     //random operations
-    fun randomOperation(){
+    private fun randomOperation(){
         val randNum1: TextView = findViewById(R.id.randNum1)
         val randNum2: TextView = findViewById(R.id.randNum2)
         val operation: TextView = findViewById(R.id.Operation)
 
-        val random = Random()
-        val num1 = random.nextInt(20) + 1 // Generates a random number between 1 and 20
-        val num2 = random.nextInt(20) + 1 // Generates a random number between 1 and 20
-
-        val operationCode = random.nextInt(3) // Generates a random number between 0 and 2
-        var operationSymbol = ""
-
-        when (operationCode) {
-            0 -> operationSymbol = "+"
-            1 -> operationSymbol = "-"
-            2 -> operationSymbol = "*"
-        }
-
+        val num1 = Random().nextInt(20) + 1 // Generating the first number
+        val num2 = Random().nextInt(20) + 1 // Generating the last number
+        val operators= listOf<String>("+", "-", "*")
+        val operatorIndex = Random().nextInt(operators.size)
+        var operator = operators[operatorIndex]
+        //generating the operation
         randNum1.text = num1.toString()
         randNum2.text = num2.toString()
-        operation.text = operationSymbol
+        operation.text = operator
 
 
         condition()

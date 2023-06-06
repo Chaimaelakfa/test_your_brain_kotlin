@@ -18,27 +18,32 @@ class FinalScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_final_screen)
 
+
+
+
+        //current score
         val score = intent.getIntExtra("score", 0)
-        // Level
+        findViewById<TextView>(R.id.currentScoreTextView).text = "Your current score is $score/20"
+
+
+        //best score using sharedpref
+        val sharedPreferences: SharedPreferences = getSharedPreferences(FinalScreen.SHARED_PREFS_KEY, Context.MODE_PRIVATE)
+        val oldScore = sharedPreferences.getInt(FinalScreen.SHARED_PREFS_KEY, 0)
+        val bestScoreTextView = findViewById<TextView>(R.id.bestScoreText)
+        bestScoreTextView.text = "Your best score is $oldScore/20"
+
+
+        //level
+        val levelText = findViewById<TextView>(R.id.levelText)
         val level: String = when {
             score <= 5 -> "Beginner"
             score <= 10 -> "Intermediate"
             score <= 15 -> "Advanced"
             else -> "Expert"
         }
-        // Retrieve the old score from shared preferences
-        val sharedPreferences: SharedPreferences = getSharedPreferences(FinalScreen.SHARED_PREFS_KEY, Context.MODE_PRIVATE)
-        val oldScore = sharedPreferences.getInt(FinalScreen.SHARED_PREFS_KEY, 0)
-
-        // Update UI elements
-        val currentScoreTextView = findViewById<TextView>(R.id.currentScoreTextView)
-        val bestScoreTextView = findViewById<TextView>(R.id.bestScoreText)
-        val levelText = findViewById<TextView>(R.id.levelText)
-
-        currentScoreTextView.text = "Your current score is $score/20"
-        bestScoreTextView.text = "Your best score is $oldScore/20"
         levelText.text = "You are at the $level level"
 
+        //button play Again
         val playAgainButton = findViewById<Button>(R.id.playAgainButton)
         playAgainButton.setOnClickListener {
             // Start the game again
