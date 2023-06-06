@@ -22,7 +22,7 @@ class FinalScreen : AppCompatActivity() {
 
 
         //current score
-        val score = intent.getIntExtra("score", 0)
+        val score = intent.getIntExtra("currentScore", 0)
         findViewById<TextView>(R.id.currentScoreTextView).text = "Your current score is $score/20"
 
 

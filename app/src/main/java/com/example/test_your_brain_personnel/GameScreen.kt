@@ -11,21 +11,19 @@ import androidx.appcompat.app.AlertDialog
 import java.util.Random
 
 class GameScreen : AppCompatActivity() {
+    private var currentScore= 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
         //random operations call
         randomOperation()
-
         //lisning to buttons
         setupNumberButtonListeners()
-
-
     }
 
-    @SuppressLint("MissingInflatedId")
+
     private fun setupNumberButtonListeners() {
-        var score =0
+
         val numberButtons = listOf<Button>(
             findViewById(R.id.num0),
             findViewById(R.id.num1),
@@ -83,7 +81,7 @@ class GameScreen : AppCompatActivity() {
             }
 
             if (userAnswerInt == correctAnswer) {
-                score +=1
+                currentScore +=1
                 // User is correct
                 val alertDialogBuilder = AlertDialog.Builder(this)
                 val dialogView = layoutInflater.inflate(R.layout.correct_answer, null)
@@ -115,7 +113,7 @@ class GameScreen : AppCompatActivity() {
                 // Move to next operation immediately
                 alertDialog.show()
             }
-            saveScore(score) // Save the score
+            saveScore(currentScore) // Save the score
         }
 
     }
@@ -131,7 +129,9 @@ class GameScreen : AppCompatActivity() {
     }
 
     fun condition(){
-        if(i==4){ val intent = Intent(this@GameScreen, FinalScreen::class.java)
+        if(i==4){
+            val intent = Intent(this@GameScreen, FinalScreen::class.java)
+            intent.putExtra("currentScore", currentScore)
             startActivity(intent)}
     }
     private fun saveScore(score: Any) {
