@@ -14,18 +14,19 @@ import java.util.Random
 class GameScreen : AppCompatActivity() {
     private var currentScore= 0
     private var i =1
+    private var numberOp = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
         //random operations call
         randomOperation()
         //lisning to buttons
-        setupNumberButtonListeners()
+        tappedButton()
 
     }
 
 
-    private fun setupNumberButtonListeners() {
+    private fun tappedButton() {
 
         val numberButtons = listOf<Button>(
             findViewById(R.id.num0),
@@ -127,12 +128,13 @@ class GameScreen : AppCompatActivity() {
         // Reset operation and userAnswer
         randomOperation()
         findViewById<TextView>(R.id.Answer).text = ""
+        cond()
         i++
-        condition()
+
     }
 
-    fun condition(){
-        if(i==4){
+    fun cond(){
+        if(i==20){
             val intent = Intent(this@GameScreen, FinalScreen::class.java)
             intent.putExtra("currentScore", currentScore)
             startActivity(intent)}
@@ -206,10 +208,11 @@ class GameScreen : AppCompatActivity() {
         randNum2.text = num2.toString()
         operation.text = operator
 
+        numberOp++
 
         val numberOperation : TextView = findViewById(R.id.numOperation)
-        numberOperation.text= "Operation Number $i"
-        condition()
+        numberOperation.text= "Operation Number ${numberOp}"
+        cond()
 
     }
 }

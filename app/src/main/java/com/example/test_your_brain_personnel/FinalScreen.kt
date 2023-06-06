@@ -10,9 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 
 class FinalScreen : AppCompatActivity() {
-    companion object {
-        const val SHARED_PREFS_KEY = "score"
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
