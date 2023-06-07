@@ -42,7 +42,7 @@ class FinalScreen : AppCompatActivity() {
         val playAgainButton = findViewById<Button>(R.id.playAgainButton)
         playAgainButton.setOnClickListener {
             // Start the game again
-            val intent = Intent(this@FinalScreen, StartScreen::class.java)
+            val intent = Intent(this@FinalScreen, GameScreen::class.java)
             startActivity(intent)
         }
     }
