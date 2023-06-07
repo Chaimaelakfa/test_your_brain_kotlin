@@ -14,6 +14,7 @@ class GameScreen : AppCompatActivity() {
     private var currentScore= 0
     private var nbrOp =1
     private var numberOp = 0
+    private var nomUser =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_screen)
@@ -23,8 +24,9 @@ class GameScreen : AppCompatActivity() {
         tappedButton()
         //name of player
         val hello = findViewById<TextView>(R.id.helloName)
-        val nom = intent.getStringExtra("name", )
+        val nom = intent.getStringExtra("name")
         hello.text = "Hello $nom"
+        intent.getStringExtra("userNameFinal")
 
     }
 
@@ -141,6 +143,7 @@ class GameScreen : AppCompatActivity() {
         if(nbrOp==4){
             val intent = Intent(this@GameScreen, FinalScreen::class.java)
             intent.putExtra("currentScore", currentScore)
+            intent.putExtra("userName",nomUser)
             startActivity(intent)}
     }
     private fun saveScore(score: Any) {

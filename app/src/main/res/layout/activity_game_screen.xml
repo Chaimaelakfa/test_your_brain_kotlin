@@ -177,7 +177,7 @@
                     android:text="6" />
                 <Button
                     android:id="@+id/DEL"
-                    style="@style/MyCustomButtonStyle"
+                    style="@style/MyCustomButtonStyleDEL"
                     android:backgroundTint="@color/colorOfDEL"
                     android:text="DEL" />
 
