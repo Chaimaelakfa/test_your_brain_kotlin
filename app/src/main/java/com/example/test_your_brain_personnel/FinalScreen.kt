@@ -23,7 +23,7 @@ class FinalScreen : AppCompatActivity() {
 
         //best score using sharedpref
         val sharedPref = getSharedPreferences("fichierPreferencesScore", Context.MODE_PRIVATE)
-        val bestScore = sharedPref.getInt("bestScore", 0)
+        val bestScore = sharedPref.getInt("bestScore", currentScore)
         val bestScoreTextView = findViewById<TextView>(R.id.bestScoreText)
         bestScoreTextView.text = "Your best score is $bestScore/20"
 

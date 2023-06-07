@@ -1,6 +1,5 @@
 package com.example.test_your_brain_personnel
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,7 @@ import java.util.Random
 
 class GameScreen : AppCompatActivity() {
     private var currentScore= 0
-    private var i =1
+    private var nbrOp =1
     private var numberOp = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,7 @@ class GameScreen : AppCompatActivity() {
         tappedButton()
         //name of player
         val hello = findViewById<TextView>(R.id.helloName)
-        val nom = intent.getStringExtra("nom", )
+        val nom = intent.getStringExtra("name", )
         hello.text = "Hello $nom"
 
     }
@@ -134,12 +133,12 @@ class GameScreen : AppCompatActivity() {
         randomOperation()
         findViewById<TextView>(R.id.Answer).text = ""
         cond()
-        i++
+        ++nbrOp
 
     }
 
     fun cond(){
-        if(i==4){
+        if(nbrOp==4){
             val intent = Intent(this@GameScreen, FinalScreen::class.java)
             intent.putExtra("currentScore", currentScore)
             startActivity(intent)}
@@ -148,7 +147,7 @@ class GameScreen : AppCompatActivity() {
         //Création/Récupération du fichier XML pour shared pref
         val sharedPref = getSharedPreferences("fichierPreferencesScore", Context.MODE_PRIVATE)
 
-        val bestScore = sharedPref.getInt("bestScore", 0)
+        val bestScore = sharedPref.getInt("bestScore", currentScore)
         if (currentScore > bestScore) {
             //ecrire dans le fichier shared pref
             val editor = sharedPref.edit()

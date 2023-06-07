@@ -20,7 +20,7 @@ class StartScreen : AppCompatActivity() {
             val TxtNom = nom.text.toString()
             // Start the Start_screen activity
             val intent = Intent(this@StartScreen, GameScreen::class.java)
-            intent.putExtra("nom", TxtNom)
+            intent.putExtra("name", TxtNom)
             startActivity(intent)
         }
     }
