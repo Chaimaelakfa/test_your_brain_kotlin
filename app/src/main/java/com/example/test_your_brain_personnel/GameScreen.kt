@@ -106,9 +106,6 @@ class GameScreen : AppCompatActivity() {
                 alertDialog.setCanceledOnTouchOutside(false);
 
             } else {
-                // If the answer is incorrect, keep the current operation and reset the user's answer
-
-                // Show a dialog with "Wrong answer" message
                 val alertDialogBuilder = AlertDialog.Builder(this)
                 val dialogView = layoutInflater.inflate(R.layout.wrong_answer, null)
                 alertDialogBuilder.setView(dialogView)
